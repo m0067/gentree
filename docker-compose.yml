@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+    optimacros_php:
+        user: dev:dev
+        container_name: optimacros_php
+        build: ./docker_config/php
+        restart: always
+        volumes:
+            - ./${BACKEND_APP}:/var/www/optimacros
+            - ./docker_config/php/www2.conf:/usr/local/etc/php-fpm.d/www2.conf
+        working_dir: /var/www/optimacros
+        ports:
+            - "10181:9000"
+        networks:
+            optimacros_network:
+                aliases:
+                    - optimacros_php
+
+networks:
+    optimacros_network:
