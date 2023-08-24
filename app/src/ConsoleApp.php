@@ -2,20 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Optimacros;
+namespace App;
 
-use Optimacros\Command\CommandInterface;
+use App\Command\CommandInterface;
 
 class ConsoleApp
 {
     public function run(): void
     {
-        foreach (\glob($this->getProjectDir().'/src/Command/*Command.php') as $fileName) {
+        foreach (\glob($this->getProjectDir() . '/src/Command/*Command.php') as $fileName) {
             $className = pathinfo($fileName)['filename'];
-            $command = '\\Optimacros\\Command\\'.$className;
+            $commandName = '\\App\\Command\\' . $className;
+            $command = new $commandName;
 
-            if ($command instanceof CommandInterface && $command::getName() === $this->getArg()) {
-                (new $command)->execute();
+            if ($command instanceof CommandInterface && $command::getName() === $this->getCommandName()) {
+                $command->execute($this->getParams());
             }
         }
     }
@@ -25,10 +26,15 @@ class ConsoleApp
         return \dirname(__DIR__);
     }
 
-    private function getArg(): string
+    private function getCommandName(): string
     {
         $arg = $_SERVER['argv'][1] ?? '';
 
         return (string)$arg;
+    }
+
+    private function getParams(): array
+    {
+        return array_slice($_SERVER['argv'], 2);
     }
 }

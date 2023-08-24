@@ -3,8 +3,8 @@
 
 declare(strict_types=1);
 
-use \Optimacros\ConsoleApp;
+use \App\ConsoleApp;
 
-require_once dirname(__DIR__).'/vendor/autoload.php';
+require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 (new ConsoleApp)->run();

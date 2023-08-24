@@ -1,5 +1,5 @@
 {
-    "name": "m0067/optimacros",
+    "name": "m0067/gentree",
     "type": "project",
     "require": {
         "php": "^8.1"
@@ -9,12 +9,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Optimacros\\": "src/"
+            "App\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Optimacros\\Tests\\": "tests/"
+            "App\\Tests\\": "tests/"
         }
     },
     "authors": [

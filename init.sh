@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 docker-compose up -d
-docker-compose exec optimacros_php composer install
+docker-compose exec gentree_php composer install

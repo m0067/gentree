@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Optimacros\Command;
+namespace App\Command;
 
 interface CommandInterface
 {
     public static function getName(): string;
 
-    public function execute(): void;
+    public function execute(array $params): void;
 }

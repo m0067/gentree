@@ -1,4 +1,4 @@
-# Optimacros app with self-written tiny console framework
+# Gentree app with self-written tiny console framework
 
 ## Init project
 
@@ -13,11 +13,11 @@ Run
 ### Run tests
 
 ```bash
-docker-compose exec optimacros_php ./vendor/bin/phpunit
+docker-compose exec gentree_php ./vendor/bin/phpunit
 ```
 
-## Add optimacros
+## Gen tree
 
 ```bash
-docker-compose exec printful_php ./bin/console add-optimacros
+docker-compose exec gentree_php ./bin/console gen-tree /var/www/gentree/tests/data/input.csv /var/www/gentree/output2.json
 ```

@@ -1,20 +1,20 @@
 version: "3.7"
 services:
-    optimacros_php:
+    gentree_php:
         user: dev:dev
-        container_name: optimacros_php
+        container_name: gentree_php
         build: ./docker_config/php
         restart: always
         volumes:
-            - ./${BACKEND_APP}:/var/www/optimacros
+            - ./${BACKEND_APP}:/var/www/gentree
             - ./docker_config/php/www2.conf:/usr/local/etc/php-fpm.d/www2.conf
-        working_dir: /var/www/optimacros
+        working_dir: /var/www/gentree
         ports:
             - "10181:9000"
         networks:
-            optimacros_network:
+            gentree_network:
                 aliases:
-                    - optimacros_php
+                    - gentree_php
 
 networks:
-    optimacros_network:
+    gentree_network:
